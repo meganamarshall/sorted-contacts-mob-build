@@ -18,6 +18,11 @@ export function makeContactRow(contact) {
     return template.content;
 }
 
+const contactTableBody = document.getElementById('contact-table-body');
+
 export default function loadContacts(contacts) {
-    
+    contacts.forEach(contact => {
+        const dom = makeContactRow(contact);
+        contactTableBody.appendChild(dom);
+    });
 }

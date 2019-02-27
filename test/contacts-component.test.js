@@ -10,9 +10,9 @@ function makeContactRow(contact) {
         <td class="center"><img src="${contact.picture}"></td>
         <td>${contact.balance.toLocaleString('en-US', currencyStyle)}</td>
         <td>${contact.age}</td>
-        <td title="Minim exercitation nisi ullamco consequat fugiat aute sit amet aute eu nisi. Nulla ad dolor ut fugiat sit sint commodo. Sint duis ullamco labore aute pariatur aute velit consequat elit proident sit aute est. In in culpa velit quis enim occaecat. Veniam esse laboris irure consequat. Laborum dolore nulla excepteur aute sit minim sit voluptate labore non esse cupidatat exercitation. Eiusmod incididunt consectetur quis proident.">IDETICA</td>
-        <td>cantu.sullivan@idetica.com</td>
-        <td class="capitalize">banana</td>
+        <td title="${contact.about}">${contact.company}</td>
+        <td>${contact.email}</td>
+        <td class="capitalize">${contact.favoriteFruit}</td>
     </tr>`;
 
     const template = document.createElement('template');

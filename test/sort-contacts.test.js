@@ -12,25 +12,13 @@ const contacts = [{
     firstName: 'Bob',
     age: 25
 }];
-
-function sortByFirstName(contacts) {
+function sortContacts(contacts, sortChoice) {
+    const property = sortChoice.property;
     return contacts.sort((a, b) => {
-        if(a.firstName === b.firstName) {
+        if(a[property] === b[property]) {
             return 0;
         }
-        if(a.firstName > b.firstName) {
-            return 1;
-        }
-        return -1;
-    });
-}
-
-function sortByAge(contacts) {
-    return contacts.sort((a, b) => {
-        if(a.age === b.age) {
-            return 0;
-        }
-        if(a.age > b.age) {
+        if(a[property] > b[property]) {
             return 1;
         }
         return -1;
@@ -38,8 +26,9 @@ function sortByAge(contacts) {
 }
 
 test('sort by first name', assert => {
+    const sortChoice = { property: 'firstName' };
     //act
-    const sorted = sortByFirstName(contacts);
+    const sorted = sortContacts(contacts, sortChoice);
     const expected = [
         {
             firstName: 'Bob',
@@ -59,8 +48,9 @@ test('sort by first name', assert => {
 });
 
 test('sort by age', assert => {
+    const sortChoice = { property: 'age' };
     //act
-    const sorted = sortByAge(contacts);
+    const sorted = sortContacts(contacts, sortChoice);
     const expected = [
         {
             firstName: 'Larry',
